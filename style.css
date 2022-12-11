@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+}
+:root {
+  --fuchsia: #ec449b;
+  --neonGreen: #99f443;
+}
+/****************** Form styles *********************/
+
+.formContainer {
+  display: none;
+  background-color: white;
+  width: fit-content;
+  position: fixed;
+  min-width: 30vw;
+  top: 5vh;
+  right: 37vw;
+  border: 2px solid #ec449b2c;
+  /* padding: 1vh 1vw; */
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+.formContainer.show {
+  display: block;
+}
+.form .formTitle {
+  font-size: 22px;
+  padding: 1.5vh 1vw 1.5vh 1vw;
+  background-color: var(--fuchsia);
+  color: white;
+}
+.form .rowTitle {
+  font-size: 20px;
+  margin: 1vh 1vw;
+}
+.form select {
+  padding: 0.5vh 0.5vw;
+  margin: 1vh 1vw;
+  width: 93%;
+}
+.form .radioContainer {
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+}
+
+.form .vendorDelay {
+  display: none;
+}
+.vendorDelay.show {
+  display: block;
+}
+.customerAskVendor {
+  display: none;
+}
+.customerAskVendor.show {
+  display: block;
+}
+.expressDelay {
+  display: none;
+}
+.expressDelay.show {
+  display: block;
+}
+#vendorSend {
+  display: none;
+}
+#vendorSend.show {
+  display: block;
+}
+.vendorSendNotif {
+  display: none;
+}
+.vendorSendNotif.show {
+  display: block;
+}
+#orderStatus {
+  display: none;
+}
+#orderStatus.show {
+  display: block;
+}
+.answeredCustomer {
+  display: none;
+}
+.answeredCustomer.show {
+  display: block;
+}
+/****************** Main Page styles *********************/
+.userInfo {
+  width: fit-content;
+  margin: 20vh auto;
+}
+.userInfo button {
+  margin-right: 5vw;
+  padding: 1vh 1vw;
+  border: none;
+  border-radius: 0.5vw;
+  background-color: var(--fuchsia);
+  color: white;
+}
+.userInfo button:hover {
+  background-color: #e70f7f;
+  cursor: pointer;
+}
+
+.userInfo label input {
+  padding: 0.5vh 0.5vw;
+  margin-right: 1vw;
+}
+.userInfo label input:focus {
+  background-color: rgba(255, 0, 255, 0.1);
+}
+
+.reportTable {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid rgb(180, 180, 180);
+  border-collapse: collapse;
+}
+.tableHeader {
+  background-color: rgba(255, 0, 255, 0.13);
+  font-size: 18px;
+}
+.idCol {
+  width: 8%;
+  text-align: center;
+  vertical-align: middle;
+
+  border: 1px solid rgb(180, 180, 180);
+  padding: 5px;
+}
+.reasonCol {
+  width: 8%;
+  text-align: center;
+  border: 1px solid rgb(180, 180, 180);
+  padding: 5px;
+  vertical-align: middle;
+}
+.descriptionCol {
+  border: 1px solid rgb(180, 180, 180);
+  width: 50%;
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+
+  word-wrap: break-word;
+}
+#validationMsg {
+  width: fit-content;
+  color: red;
+  font-size: 18px;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+}

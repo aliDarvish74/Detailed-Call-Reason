@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>گزارش تماس مشتریان</title>
+  </head>
+  <body>
+    <div class="formContainer" id="formCantainer">
+      <form class="form" id="form">
+        <h2 class="formTitle">ثبت گزارش تماس جدید</h2>
+        <h4 class="rowTitle">مشکل مشتری:</h4>
+        <select name="issues" id="issues" class="issueList">
+          <option value="default">-- مشکل مشتری --</option>
+          <option value="foodContrariety">مغایرت در سفارش</option>
+          <option value="orderCancelation">درخواست لغو سفارش</option>
+          <option value="changeOrder">درخواست ویرایش سفارش</option>
+          <option value="expressDelay">تاخیر پیک اکسپرس</option>
+          <option value="vendorDelay">تاخیر پیک وندور</option>
+        </select>
+        <div class="vendorDelay">
+          <h4 class="rowTitle">نحوه اعلام تاخیر</h4>
+          <div class="radioContainer">
+            <label
+              >تماس ورودی
+              <input
+                type="radio"
+                name="vendorDelayReport"
+                id="vendorDelay"
+                value="incoming"
+              />
+            </label>
+            <label
+              >تیکت
+              <input
+                type="radio"
+                name="vendorDelayReport"
+                id="vendorDelay"
+                value="ticket"
+              />
+            </label>
+          </div>
+          <h4 class="rowTitle">تکرار تاخیر</h4>
+          <div class="radioContainer">
+            <label
+              >تاخیر اول
+              <input
+                type="radio"
+                name="delayRepeat"
+                id="delayRepeat"
+                value="firstDelay"
+              />
+            </label>
+            <label
+              >تاخیر دوم
+              <input
+                type="radio"
+                name="delayRepeat"
+                id="delayRepeat"
+                value="secondDelay"
+              />
+            </label>
+            <label
+              >تاخیر سوم و بیشتر
+              <input
+                type="radio"
+                name="delayRepeat"
+                id="delayRepeat"
+                value="thirdDelay"
+              />
+            </label>
+          </div>
+
+          <h4 class="rowTitle">تماس با وندور و جویا شدن وضعیت سفارش</h4>
+          <select name="sendStatus" id="sendStatus">
+            <option value="default">--- وضعیت سفارش ---</option>
+            <option value="5">تحویل تا 5 دقیقه آینده</option>
+            <option value="10">تحویل تا 10 دقیقه آینده</option>
+            <option value="15">تحویل تا 15 دقیقه آینده</option>
+            <option value="20">تحویل تا 20 دقیقه آینده</option>
+            <option value="25">تحویل تا 25 دقیقه آینده</option>
+            <option value="30">تحویل تا 30 دقیقه آینده</option>
+            <option value="cancel">عدم امکان ارسال و کنسلی سفارش</option>
+          </select>
+          <h4 class="rowTitle">تماس با مشتری و اعلام نتیجه</h4>
+          <div class="radioContainer">
+            <div>
+              <label for="answer">مشتری پاسخ دادند</label>
+              <input
+                type="radio"
+                name="callCustomer"
+                id="answer"
+                onchange="answerFunction()"
+                value="answer"
+              />
+            </div>
+            <div>
+              <label for="noAnswer">مشتری بی پاسخ</label>
+              <input
+                type="radio"
+                name="callCustomer"
+                id="noAnswer"
+                onchange="noAnswerFunction()"
+                value="noAnswer"
+              />
+            </div>
+          </div>
+          <div class="customerAskVendor">
+            <h4 class="rowTitle">درخواست مشتری</h4>
+            <div class="radioContainer">
+              <label
+                >منتظر می مانند
+                <input
+                  type="radio"
+                  name="customerAsk"
+                  id="customerAsk"
+                  value="wait"
+                />
+              </label>
+              <label
+                >سفارش کنسل شود
+                <input
+                  type="radio"
+                  name="customerAsk"
+                  id="customerAsk"
+                  value="cancel"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="expressDelay">
+          <h4 class="rowTitle">نحوه اعلام تاخیر:</h4>
+          <div class="radioContainer">
+            <label
+              >تماس ورودی
+              <input
+                type="radio"
+                name="expressDelay"
+                id="expressDelay"
+                value="incoming"
+              />
+            </label>
+            <label
+              >تیکت
+              <input
+                type="radio"
+                name="expressDelay"
+                id="expressDelay"
+                value="ticket"
+              />
+            </label>
+          </div>
+
+          <h4 class="rowTitle">تکرار تاخیر:</h4>
+          <div class="radioContainer">
+            <label
+              >تاخیر اول
+              <input
+                type="radio"
+                name="exDelayRepeat"
+                id="exDelayRepeat"
+                value="firstDelay"
+              />
+            </label>
+            <label
+              >تاخیر دوم
+              <input
+                type="radio"
+                name="exDelayRepeat"
+                id="exDelayRepeat"
+                value="secondDelay"
+              />
+            </label>
+            <label
+              >تاخیر سوم و بیشتر
+              <input
+                type="radio"
+                name="exDelayRepeat"
+                id="exDelayRepeat"
+                value="thirdDelay"
+              />
+            </label>
+          </div>
+          <h4 class="rowTitle">وضعیت پیک اکسپرس:</h4>
+          <select name="expressStatus" id="expressStatus">
+            <option value="default">-- وضعیت پیک اکسپرس --</option>
+            <option value="noExpress">undefined</option>
+            <option value="request">REQUESTED</option>
+            <option value="assign">ASSIGNED</option>
+            <option value="ack">ACK</option>
+            <option value="arRest">AT RESAURANT</option>
+            <option value="dropOff">ARRIVED AT DROP OFF</option>
+            <option value="deliver">DELIVERED</option>
+          </select>
+          <div id="vendorSend">
+            <h4 class="rowTitle">تماس با وندور و بررسی امکان ارسال:</h4>
+
+            <div class="radioContainer">
+              <div>
+                <label for="send">وندور امکان ارسال دارد</label>
+                <input
+                  type="radio"
+                  name="vendorSend"
+                  id="send"
+                  value="send"
+                  onchange="exVendorSend()"
+                />
+              </div>
+              <div>
+                <label for="notSend">وندور امکان ارسال ندارد</label>
+                <input
+                  type="radio"
+                  name="vendorSend"
+                  id="notSend"
+                  value="notSend"
+                  onchange="exVendorNotSend()"
+                />
+              </div>
+            </div>
+            <h4
+              class="rowTitle vendorSendNotif"
+              style="color: var(--fuchsia); text-align: center"
+            >
+              ثبت فرم اکسپرس به همراه توضیحات
+            </h4>
+          </div>
+          <div id="orderStatus">
+            <h4 class="rowTitle">تماس با وندور و بررسی وضعیت سفارش:</h4>
+
+            <div class="radioContainer">
+              <div>
+                <label for="inVendor">سفارش داخل مجموعه است</label>
+                <input
+                  type="radio"
+                  name="orderStatus"
+                  id="inVendor"
+                  value="inVendor"
+                />
+              </div>
+              <div>
+                <label for="outVendor">سفارش تحویل پیک شده</label>
+                <input
+                  type="radio"
+                  name="orderStatus"
+                  id="outVendor"
+                  value="outVendor"
+                />
+              </div>
+            </div>
+            <h4
+              class="rowTitle"
+              style="color: var(--fuchsia); text-align: center"
+            >
+              ثبت فرم اکسپرس به همراه توضیحات
+            </h4>
+          </div>
+          <h4 class="rowTitle">تماس با مشتری و اعلام وضعیت سفارش:</h4>
+          <div class="radioContainer">
+            <div>
+              <label
+                >مشتری پاسخ دادند
+                <input
+                  type="radio"
+                  name="callCustomer"
+                  id="answer"
+                  value="answer"
+                  onchange="exCustomerAnswer()"
+                />
+              </label>
+            </div>
+            <label
+              >مشتری بی پاسخ
+              <input
+                type="radio"
+                name="callCustomer"
+                id="noAnswer"
+                value="noAnswer"
+                onchange="exCustomerNoAnswer()"
+              />
+            </label>
+          </div>
+          <div class="answeredCustomer">
+            <h4 class="rowTitle">درخواست مشتری</h4>
+            <div class="radioContainer">
+              <label
+                >منتظر می مانند
+                <input
+                  type="radio"
+                  name="customerAsk"
+                  id="exWait"
+                  value="wait"
+                />
+              </label>
+              <label
+                >سفارش کنسل شود
+                <input
+                  type="radio"
+                  name="customerAsk"
+                  id="exCancel"
+                  value="cancel"
+                />
+              </label>
+            </div>
+          </div>
+          <h4 class="rowTitle">زمان داده شده</h4>
+          <select name="givenTime" id="givenTime">
+            <option value="default">-- زمان داده شده --</option>
+            <option value="5">5 دقیقه</option>
+            <option value="10">10 دقیقه</option>
+            <option value="15">15 دقیقه</option>
+            <option value="20">20 دقیقه</option>
+            <option value="25">25 دقیقه</option>
+            <option value="30">30 دقیقه</option>
+            <option value="followUpEnd">اتمام پیگیری</option>
+          </select>
+        </div>
+
+        <div class="btnContainer">
+          <button type="submit" id="submitBtn">ثبت گزارش</button>
+          <button type="button" id="closeBtn">لغو</button>
+        </div>
+      </form>
+    </div>
+    <div class="mainPage">
+      <form class="userInfo">
+        <label>
+          شناسه مشتری:
+          <input type="text" name="customerID" id="customerID" />
+        </label>
+        <button type="button" id="addReason">ثبت دلیل تماس جدید</button>
+        <p id="mainMsg" style="color: fuchsia"></p>
+      </form>
+      <h3
+        style="
+          text-align: center;
+          color: fuchsia;
+          font-size: 18px;
+          margin-bottom: 20px;
+        "
+      >
+        گزاشات پیشین:
+      </h3>
+      <div
+        class="reportPlace"
+        id="reportPlace"
+        style="text-align: center"
+      ></div>
+      <p id="validationMsg"></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
