@@ -31,13 +31,13 @@
   display: block;
 }
 .form .formTitle {
-  font-size: 22px;
+  font-size: 20px;
   padding: 1.5vh 1vw 1.5vh 1vw;
   background-color: var(--fuchsia);
   color: white;
 }
 .form .rowTitle {
-  font-size: 20px;
+  font-size: 18px;
   margin: 1vh 1vw;
 }
 .form select {
